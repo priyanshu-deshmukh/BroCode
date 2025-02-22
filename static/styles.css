@@ -1,0 +1,481 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "PP Neue Montreal";
+    
+}
+
+#video-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.7) 30%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0) 100%);
+    overflow: hidden;
+}
+
+
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 80px;
+    color: #ffffff;
+}
+
+#nav h2 {
+    font-size: 30px;
+}
+
+#nav i {
+    font-size: 30px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+
+
+#full {
+    height: 100%;
+    width: 40%;
+    position: absolute;
+
+    background-color: rgba(0, 0, 0, 0.362);
+    top: 0;
+    right: -40%;
+    backdrop-filter: blur(12px);
+    padding: 150px 60px;
+    font-weight: 900;
+    font-size: 50px;
+
+}
+
+/* Close icon styling */
+#full i {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+
+#video-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.7) 30%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0) 100%);
+}
+
+.video-container {
+    transition: opacity 0.5s ease-out;
+}
+
+.video-container.scrolled {
+    opacity: 0.5;
+}
+
+#video-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(166, 1, 243, 0) 0%, #000000 100%);
+    pointer-events: none;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: -1;
+
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -3;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 200px;
+    font-weight: 400;
+    letter-spacing: -4px;
+}
+
+section.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-family: "PP Editorial Old";
+    font-weight: lighter;
+    color: #dddddd;
+    position: relative;
+    Letter-spacing: 15px;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.589));
+    line-height: 0.70em;
+    outline: none;
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+
+    0%,
+    18%,
+    20%,
+    50.1%,
+    60%,
+    65.1%,
+    80%,
+    90.1%,
+    92% {
+        color: #ff53f6;
+        text-shadow: none;
+    }
+
+    18.1%,
+    20.1%,
+    30%,
+    50%,
+    60.1%,
+    65%,
+    80.1%,
+    90%,
+    92.1%,
+    100% {
+        color: #fff;
+        text-shadow: 0 0 10px #ffffff,
+            0 0 20px 0 0 40px 0 0 80px 0 0 160px #03bcf4, #03bcf4, #03bcf4, #03bcf4;
+    }
+}
+
+
+
+section.info {
+    width: 100vw;
+    height: 150vh;
+    background-color: #000;
+    color: #dddddd;
+}
+
+.header-row {
+    width: 100%;
+    height: 250px;
+    padding: 0 2em;
+}
+
+
+.header-row:nth-child(1) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-row:nth-child(2) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header-info {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #000;
+    color: #dddd;
+}
+
+
+.header-info p {
+    padding: 1em;
+    font-family: "PP Editorial Old";
+    font-size: 45px;
+    font-weight: lighter;
+    
+}
+
+
+
+.header-images {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    /* Center the image containers horizontally */
+    align-items: center;
+    /* Center the image containers vertically */
+}
+
+.img {
+    width: 100%;
+    /* Set to 25% to evenly space 4 images */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Prevent image overflow */
+    border-radius: 8px;
+    /* Optional: adds slight rounding to corners */
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    /* This ensures the image covers the area without distortion */
+    object-position: center;
+    /* Centers the image within its container */
+
+}
+
+
+
+
+
+
+section.pinned {
+    position: absolute;
+    top: 100vh;
+    width: 100%;
+    height: 100%vh;
+    z-index: 2;
+
+}
+
+section.whitespace {
+    position: relative;
+    width: 100%;
+    height: 300vh;
+    background-color: #000;
+    z-index: -1;
+}
+
+
+.revealer {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 35%;
+    margin-top: 325px;
+    width: 120px;
+    height: 120px;
+
+
+
+}
+
+
+.revealer .revealer-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e462c8;
+
+    clip-path: polygon(45% 0%, 55% 0%, 55% 100%, 45% 100%);
+}
+
+.revealer .revealer-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(90deg);
+    width: 100%;
+    height: 100%;
+    background-color: #e462c8;
+    /* Pink-400 color */
+    clip-path: polygon(45% 0%, 55% 0%, 55% 100%, 45% 100%);
+}
+
+.website-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: #e462c8;
+    z-index: 10;
+    padding: 4rem 2rem;
+}
+
+.website-content h1 {
+    font-size: 72px;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.website-content p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    padding: 2rem;
+}
+
+.website-content .btn {
+    display: block;
+    margin: 2rem auto;
+    max-width: 200px;
+    text-align: center;
+}
+
+section.website-content {
+    position: relative;
+    width: 100%;
+    height: 150vh;
+    background-color: #e462c8;
+    z-index: 10;
+}
+
+.website-content h1 {
+    font-size: 72px;
+    letter-spacing: 0;
+}
+
+html.lenis html.lenis body {
+    height: auto;
+}
+
+lenis lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+lenis lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+lenis lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+.btn {
+    padding-top: 110px;
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 6em;
+    transition: all 0.2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgb(255, 255, 255);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgb(1, 255, 255);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.btn::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+
+
+.light {
+    position: fixed;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--x) var(--y), transparent 10%, rgba(0, 0, 0, 0.644) 20%);
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clarity the buissness optimization tool</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+</head>
+
+<body>
+    <section class="hero">
+        <div id="video-container">
+
+            <div class="video-overlay">
+                <video class="background-video" autoplay muted loop>
+                    <source src="{% static 'bg.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <h1 contenteditable="true" style="padding-top: 300px; color: #e40fe7;">ClARITY</h1>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="info">
+        <div class="header-rows">
+            <div class="header-row">
+                <h1>Optimized</h1>
+            </div>
+            <div class="header-row">
+                <h1>Accurate</h1>
+            </div>
+        </div>
+    </section>
+    <section class="header-info">
+        <p class="">
+            Track real-time sentiment from platforms like Twitter and Reddit to understand how people feel about a specific topic or event.
+            Identify emerging trends and discussions to make data-driven decisions.
+            Use insights from sentiment analysis for tailored advertising campaigns that resonate with your audience.
+        </p>
+        <div class="header-images">
+            <div class="img"><img src="{% static 'img1.png' %}" alt="" /></div>
+            <div class="img"><img src="{% static 'img2.png' %}" alt="" /></div>
+            <div class="img"><img src="{% static 'img3.png' %}" alt="" /></div>
+            <div class="img"><img src="{% static 'img4.png' %}" alt="" /></div>
+        </div>
+    </section>
+    <section class="whitespace"></section>
+    <section class="pinned">
+        <div class="revealer">
+            <div class="revealer-1"></div>
+            <div class="revealer-2"></div>
+        </div>
+    </section>
+    <section class="pinned">
+        <div class="revealer">
+            <div class="revealer-1"></div>
+            <div class="revealer-2"></div>
+        </div>
+    </section>
+    <section class="website-content">
+        <h1 style="color: white; outline: #000000;;">Explore Now</h1>
+        <a href="{% url 'llm:llm_home' %}" class="decoration-none">
+       <button class="btn no-underline border-none bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"> Get Started</button>
+        </a>
+
+
+    </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>

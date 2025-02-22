@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mx-auto px-4 py-10">
+        <h1 class="text-4xl font-bold text-center mb-10 text-white">ACCOUNT DETAILS</h1>
+        <div class="flex flex-col items-center space-y-6">
+            <!-- Profile Section -->
+            <div class="flex flex-col md:flex-row items-center bg-gray-800 p-6 rounded-lg shadow-lg w-full md:w-2/3">
+                <!-- Profile Image -->
+                <img
+                    src="{{ session.userinfo.picture }}"
+                    alt="Profile Image"
+                    class="w-36 h-36 rounded-full object-cover md:mr-6 mb-4 md:mb-0"
+                />
+                <!-- Profile Info -->
+                <div class="w-full">
+                    <h1 class="text-2xl font-bold mb-2 text-white">{{ session.userinfo.name }}</h1>
+                    <p class="text-gray-300 mb-1"><strong>Email:</strong> {{ session.userinfo.email }}</p>
+                    <p class="text-gray-300 mb-1"><strong>Phone:</strong> +1 234 567 890</p>
+                    <p class="text-gray-300 mb-1"><strong>Address:</strong> 123 Main Street, City, Country</p>
+
+                </div>
+            </div>
+
+            <!-- Logout Button -->
+          <a href="{% url 'auth_0:logout' %}">
+            <button
+                class="bg-pink-400 text-white py-2 px-6 rounded-lg font-bold hover:bg-white hover:text-pink-400 transition-all shadow-md">
+                Logout
+            </button>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

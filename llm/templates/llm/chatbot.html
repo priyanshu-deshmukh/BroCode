@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if session %}
+<div class="flex items-center justify-center h-screen">
+    <iframe
+        src="https://www.chatbase.co/chatbot-iframe/9NgwMjRvu9ypy-UbtomHC"
+        class="w-4/5 h-[700px] border border-gray-300"
+        frameborder="0"
+    ></iframe>
+</div>
+{% else %}
+login first
+{% endif %}
+{% endblock %}

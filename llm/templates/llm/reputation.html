@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <!-- Page Container -->
+  <div class="container mx-auto px-6 py-12">
+    <!-- Heading -->
+    <h1 class="text-5xl text-white font-bold text-center mb-10">UPLOAD YOUR REVIEWS</h1>
+
+    <!-- Upload Form -->
+    <form class="flex flex-col items-center space-y-6" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Custom File Input -->
+        <label for="file-upload" class="bg-pink-400 text-white px-6 py-3 rounded-lg cursor-pointer shadow-md font-bold hover:bg-white hover:text-pink-400">
+          Choose File
+        </label>
+        <input type="file" name="csv_file" id="file-upload" class="hidden">
+
+        <!-- Submit Button -->
+        <button type="submit" class="bg-pink-400 hover:bg-white hover:text-pink-400 text-white py-2 px-8 rounded-lg font-bold shadow-md">
+          Upload CSV
+        </button>
+    </form>
+
+    <!-- Cards Section -->
+      {% if results %}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <!-- Card 1 -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+          <h2 class="text-4xl font-bold text-blue-500">Positive</h2>
+          <p class="text-2xl font-semibold text-white mt-4">{{ results.sentiment_distribution.Positive }}</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+          <h2 class="text-4xl text-white font-bold">Neutral</h2>
+          <p class="text-2xl font-semibold text-white mt-4">{{ results.sentiment_distribution.Neutral }}</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+          <h2 class="text-4xl font-bold text-red-500">Negative</h2>
+          <p class="text-2xl font-semibold text-white mt-4">{{ results.sentiment_distribution.Negative }}</p>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+
+  </div>
+<br>
+<br>
+{% if cs %}
+<h1 class="text-4xl md:text-5xl font-extrabold text-center text-pink-400 mb-8"> Top keywords in Customer Reviews</h1>
+   <div class="flex flex-wrap gap-4 p-6 bg-gray-900 rounded-2xl shadow-lg w-full max-w-lg mx-auto">
+       {% for i in tkey %}
+        <span class="px-4 py-2 text-sm font-semibold text-white bg-pink-400 rounded-full shadow-md hover:bg-white hover:text-pink-400 transition">{{ i }}</span>
+        {% endfor %}
+    </div>
+{% else %}
+{% endif %}
+<br>
+<br>
+<canvas id="sentimentChart"></canvas>
+
+<script>
+    const lineCtx = document.getElementById('sentimentChart').getContext('2d');
+
+  const sentimentData = {{ cs }}; // Your sentiment scores
+      // Line Chart
+  new Chart(lineCtx, {
+    type: 'line',
+    data: {
+      labels: sentimentData.map((_, i) => i + 1),
+      datasets: [{
+        label: 'Sentiment Score',
+        data: sentimentData,
+        borderColor: '#ff1493',
+        borderWidth: 2,
+        fill: true,
+        backgroundColor: 'rgba(255, 20, 147, 0.2)'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          ticks: { color: 'white' },
+          grid: { color: 'rgba(255, 255, 255, 0.2)' }
+        },
+        y: {
+          beginAtZero: true,
+          ticks: { color: 'white' },
+          grid: { color: 'rgba(255, 255, 255, 0.2)' }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: 'white' }
+        }
+      }
+    }
+  });
+</script>
+
+<br>
+<br>
+
+{% endblock %}

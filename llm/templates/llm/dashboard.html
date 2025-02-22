@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="flex items-center justify-center pt-32">
+
+    <div class="flex flex-col bg-gray-900 p-6 rounded-2xl shadow-lg w-96 border border-gray-300">
+
+        <form class="space-y-4" method="POST">
+            {% csrf_token %}
+            <div>
+                <label class="block text-sm  font-medium text-pink-400">Twitter Query</label>
+                <input
+                    type="text"
+                    required
+                    class="w-full p-2 mt-1 text-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    placeholder="Enter Twitter query"
+                    name="query"
+                />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-pink-400">Subreddit Name</label>
+                <input
+                    type="text"
+                    required
+                    class="w-full p-2 text-white mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    placeholder="Enter subreddit name"
+                    name="subreddit"
+                />
+            </div>
+            <button
+                type="submit"
+                class="w-full bg-pink-400 text-white py-2 rounded-lg hover:bg-white hover:text-pink-400 transition"
+            >
+                Submit
+            </button>
+        </form>
+    </div>
+
+
+  </div>
+<br>
+<br>
+<br>
+<canvas id="sentimentChart"></canvas>
+<br>
+<div class="flex space-around justify-center items-center gap-32">
+    <div class="w-[400px] h-[500px] ">
+  <canvas id="sentimentPieChart"></canvas>
+    </div>
+    <div class="w-[600px] h-[600px] pt-24">
+    <canvas id="sentimentBarChart"></canvas>
+    </div>
+</div>
+
+
+<br>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const lineCtx = document.getElementById('sentimentChart').getContext('2d');
+  const pieCtx = document.getElementById('sentimentPieChart').getContext('2d');
+  const barCtx = document.getElementById('sentimentBarChart').getContext('2d');
+  const sentimentData = {{ cs }}; // Your sentiment scores
+
+  // Line Chart
+  new Chart(lineCtx, {
+    type: 'line',
+    data: {
+      labels: sentimentData.map((_, i) => i + 1),
+      datasets: [{
+        label: 'Sentiment Score',
+        data: sentimentData,
+        borderColor: '#ff1493',
+        borderWidth: 2,
+        fill: true,
+        backgroundColor: 'rgba(255, 20, 147, 0.2)'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          ticks: { color: 'white' },
+          grid: { color: 'rgba(255, 255, 255, 0.2)' }
+        },
+        y: {
+          beginAtZero: true,
+          ticks: { color: 'white' },
+          grid: { color: 'rgba(255, 255, 255, 0.2)' }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: 'white' }
+        }
+      }
+    }
+  });
+
+  // Pie Chart
+  const positive = sentimentData.filter(v => v > 0).length;
+  const neutral = sentimentData.filter(v => v === 0).length;
+  const negative = sentimentData.filter(v => v < 0).length;
+
+  new Chart(pieCtx, {
+    type: 'pie',
+    data: {
+      labels: ['Positive', 'Neutral', 'Negative'],
+      datasets: [{
+        label: 'Sentiment Distribution',
+        data: [positive, neutral, negative],
+        backgroundColor: ['#000000', '#F1F1F1', '#FF66C4']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: 'white' }
+        }
+      }
+    }
+  });
+
+  // Bar Chart - Sentiment Severity
+  const positiveScores = sentimentData.filter(v => v > 0);
+  const negativeScores = sentimentData.filter(v => v < 0);
+  const avgPositive = positiveScores.length > 0 ? positiveScores.reduce((a, b) => a + b, 0) / positiveScores.length : 0;
+  const avgNegative = negativeScores.length > 0 ? negativeScores.reduce((a, b) => a + b, 0) / negativeScores.length : 0;
+
+  new Chart(barCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Average Positive', 'Average Negative'],
+      datasets: [{
+        label: 'Sentiment Severity',
+        data: [avgPositive, Math.abs(avgNegative)],
+        backgroundColor: ['#32CD32', '#FF4500'],
+        borderColor: ['#228B22', '#B22222'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: 'white' },
+          grid: { color: 'rgba(255, 255, 255, 0.2)' }
+        },
+        x: {
+          ticks: { color: 'white' }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: 'white' }
+        }
+      }
+    }
+  });
+</script>
+
+    <h1 class="text-4xl md:text-5xl font-extrabold text-center text-pink-400 mb-8"> Top keywords in Reddit Posts</h1>
+   <div class="flex flex-wrap gap-4 p-6 bg-gray-900 rounded-2xl shadow-lg w-full max-w-lg mx-auto">
+       {% for i in tkey %}
+        <span class="px-4 py-2 text-sm font-semibold text-white bg-pink-400 rounded-full shadow-md hover:bg-white hover:text-pink-400 transition">{{ i }}</span>
+        {% endfor %}
+    </div>
+
+<br>
+    <div class="container mx-auto pt-16">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% for i in tp %}
+            <div class="bg-white rounded-lg shadow-md flex items-center p-4">
+                <img src="{% static 'twi.png' %}" alt="Twitter Logo" class="w-12 h-12 mr-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800">Score - {{ i.1 }}</h3>
+                    <p class="text-gray-600 mt-1">{{ i.0 }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+<div class="container mx-auto pt-16">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% for i in rp %}
+            <div class="bg-white rounded-lg shadow-md flex items-center p-4">
+                <img src="{% static 'red.png' %}" alt="Twitter Logo" class="w-12 h-12 mr-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800">{{ i.0 }}</h3>
+                    <p class="text-gray-600 mt-1">{{ i.1 }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

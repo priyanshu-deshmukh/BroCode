@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <section class="bg-gray-900 py-12">
+      <div class="container px-6 py-12 mx-auto">
+        <!-- Section 1: Company Info -->
+        <div class="text-center" data-aos="fade-up">
+          <h1 class="text-3xl font-semibold text-pink-400">About Our Company</h1>
+          <p class="mt-4 text-white">
+            We are a team of passionate innovators, dedicated to bringing creative solutions to life. Our mission is to drive success through innovation and excellence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Team Members -->
+    <!-- Section 2: Team Members -->
+<section class="bg-gray-900 py-12">
+  <div class="container px-6 py-12 mx-auto">
+    <div class="text-center" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-pink-400">Meet Our Team</h2>
+      <p class="mt-2 text-white">
+        Our team of professionals is here to make your experience exceptional.
+      </p>
+    </div>
+<br>
+<br>
+    <div class="grid grid-cols-1 gap-8 mt-12 md:grid-cols-3">
+      <!-- Team Member 1 -->
+      <div class="flex flex-col items-center text-center" data-aos="flip-left">
+        <div class="w-40 h-40 rounded-full overflow-hidden">
+          <img src="{% static 'as.jpg' %}" alt="Team Member 1" class="object-cover w-full h-full">
+        </div>
+        <h3 class="mt-4 text-lg font-medium text-white">Atharva Sapate</h3>
+        <p class="mt-2 text-sm text-pink-400"></p>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.23 5.924c-.822.364-1.707.609-2.635.717a4.57 4.57 0 002.004-2.513 9.075 9.075 0 01-2.889 1.103 4.533 4.533 0 00-7.727 4.13 12.847 12.847 0 01-9.336-4.73 4.534 4.534 0 001.405 6.053 4.52 4.52 0 01-2.05-.566v.056a4.533 4.533 0 003.637 4.446 4.562 4.562 0 01-2.041.078 4.533 4.533 0 004.233 3.15 9.075 9.075 0 01-5.625 1.938c-.364 0-.724-.021-1.08-.064a12.798 12.798 0 006.938 2.033c8.326 0 12.884-6.897 12.884-12.884 0-.196-.004-.393-.013-.589a9.209 9.209 0 002.261-2.343z"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.17c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.495.998.108-.776.42-1.305.763-1.605-2.665-.304-5.466-1.332-5.466-5.93 0-1.309.468-2.381 1.236-3.221-.124-.303-.536-1.526.116-3.176 0 0 1.008-.322 3.3 1.23a11.505 11.505 0 016.002 0c2.292-1.552 3.3-1.23 3.3-1.23.652 1.65.24 2.873.118 3.176.77.84 1.236 1.912 1.236 3.221 0 4.608-2.807 5.625-5.478 5.921.43.371.823 1.102.823 2.222v3.293c0 .319.192.694.801.577C20.565 22.092 24 17.594 24 12.297c0-6.627-5.373-12-12-12z"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-8 19h-3v-9h3v9zm-1.5-10.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm10.5 10.268h-3v-4.5c0-1.379-1.121-2.5-2.5-2.5s-2.5 1.121-2.5 2.5v4.5h-3v-9h3v1.176c.868-.954 2.084-1.676 3.5-1.676 2.485 0 4.5 2.015 4.5 4.5v5z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Repeat similar structure for Team Members 2 and 3 -->
+      <div class="flex flex-col items-center text-center" data-aos="flip-left">
+        <div class="w-40 h-40 rounded-full overflow-hidden">
+          <img src="{% static 'ad.jpg' %}" alt="Team Member 1" class="object-cover w-full h-full">
+        </div>
+        <h3 class="mt-4 text-lg font-medium text-white">Atharva Dethe</h3>
+        <p class="mt-2 text-sm text-pink-400"></p>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.23 5.924c-.822.364-1.707.609-2.635.717a4.57 4.57 0 002.004-2.513 9.075 9.075 0 01-2.889 1.103 4.533 4.533 0 00-7.727 4.13 12.847 12.847 0 01-9.336-4.73 4.534 4.534 0 001.405 6.053 4.52 4.52 0 01-2.05-.566v.056a4.533 4.533 0 003.637 4.446 4.562 4.562 0 01-2.041.078 4.533 4.533 0 004.233 3.15 9.075 9.075 0 01-5.625 1.938c-.364 0-.724-.021-1.08-.064a12.798 12.798 0 006.938 2.033c8.326 0 12.884-6.897 12.884-12.884 0-.196-.004-.393-.013-.589a9.209 9.209 0 002.261-2.343z"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.17c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.495.998.108-.776.42-1.305.763-1.605-2.665-.304-5.466-1.332-5.466-5.93 0-1.309.468-2.381 1.236-3.221-.124-.303-.536-1.526.116-3.176 0 0 1.008-.322 3.3 1.23a11.505 11.505 0 016.002 0c2.292-1.552 3.3-1.23 3.3-1.23.652 1.65.24 2.873.118 3.176.77.84 1.236 1.912 1.236 3.221 0 4.608-2.807 5.625-5.478 5.921.43.371.823 1.102.823 2.222v3.293c0 .319.192.694.801.577C20.565 22.092 24 17.594 24 12.297c0-6.627-5.373-12-12-12z"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-8 19h-3v-9h3v9zm-1.5-10.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm10.5 10.268h-3v-4.5c0-1.379-1.121-2.5-2.5-2.5s-2.5 1.121-2.5 2.5v4.5h-3v-9h3v1.176c.868-.954 2.084-1.676 3.5-1.676 2.485 0 4.5 2.015 4.5 4.5v5z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="flex flex-col items-center text-center" data-aos="flip-left">
+        <div class="w-40 h-40 rounded-full overflow-hidden">
+          <img src="{% static 's.jpg' %}" alt="Team Member 1" class="object-cover w-full h-full">
+        </div>
+        <h3 class="mt-4 text-lg font-medium text-white">Saurav Dhait</h3>
+        <p class="mt-2 text-sm text-pink-400"></p>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.23 5.924c-.822.364-1.707.609-2.635.717a4.57 4.57 0 002.004-2.513 9.075 9.075 0 01-2.889 1.103 4.533 4.533 0 00-7.727 4.13 12.847 12.847 0 01-9.336-4.73 4.534 4.534 0 001.405 6.053 4.52 4.52 0 01-2.05-.566v.056a4.533 4.533 0 003.637 4.446 4.562 4.562 0 01-2.041.078 4.533 4.533 0 004.233 3.15 9.075 9.075 0 01-5.625 1.938c-.364 0-.724-.021-1.08-.064a12.798 12.798 0 006.938 2.033c8.326 0 12.884-6.897 12.884-12.884 0-.196-.004-.393-.013-.589a9.209 9.209 0 002.261-2.343z"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.17c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.495.998.108-.776.42-1.305.763-1.605-2.665-.304-5.466-1.332-5.466-5.93 0-1.309.468-2.381 1.236-3.221-.124-.303-.536-1.526.116-3.176 0 0 1.008-.322 3.3 1.23a11.505 11.505 0 016.002 0c2.292-1.552 3.3-1.23 3.3-1.23.652 1.65.24 2.873.118 3.176.77.84 1.236 1.912 1.236 3.221 0 4.608-2.807 5.625-5.478 5.921.43.371.823 1.102.823 2.222v3.293c0 .319.192.694.801.577C20.565 22.092 24 17.594 24 12.297c0-6.627-5.373-12-12-12z"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-8 19h-3v-9h3v9zm-1.5-10.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm10.5 10.268h-3v-4.5c0-1.379-1.121-2.5-2.5-2.5s-2.5 1.121-2.5 2.5v4.5h-3v-9h3v1.176c.868-.954 2.084-1.676 3.5-1.676 2.485 0 4.5 2.015 4.5 4.5v5z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 500, // Animation duration
+        once: true, // Animate only once when scrolling
+      });
+    </script>
+{% endblock %}

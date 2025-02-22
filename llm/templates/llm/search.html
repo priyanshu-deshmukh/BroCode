@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mx-auto px-4 py-10 mb-8">
+        <!-- Clarity Search Heading -->
+        <h1 class="text-4xl text-white font-bold text-center mb-10">Clarity Search</h1>
+
+        <!-- Search Boxes and Button -->
+        <div class="flex justify-center items-center space-x-6 mb-8">
+            <!-- Left Search Box -->
+            <form method="POST" class="flex gap-2 justify-center items-center">
+            {% csrf_token %}
+            <input
+                type="text"
+                id="query"
+                placeholder="Search for articles"
+                class="w-[500px] p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="query"
+            />
+
+            <!-- "Go" Button -->
+            <button
+                id="go-button"
+                class="p-3 bg-pink-400 rounded-lg text-white font-bold hover:bg-white hover:text-pink-400 transition-colors"
+                type="submit"
+            >
+                Go
+            </button>
+            </form>
+            <!-- Right Search Box -->
+            <input
+                type="text"
+                id="right-search-box"
+                placeholder="Search for cards"
+                class="w-1/2 p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+
+        </div>
+
+        <!-- Placeholder Text Section -->
+        <div class="mb-8 p-6 bg-gray-800 rounded-lg text-center">
+            <p class="text-lg text-gray-300">{{ answer }}</p>
+        </div>
+
+        <!-- Cards Section -->
+        <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for result,image in response %}
+            <!-- Sample Card 1 -->
+            <div class="card p-6 bg-gray-800 rounded-lg shadow-lg">
+                <img
+                    src="{{ image }}"
+                    alt=""
+                    class="w-full h-32 object-cover rounded-md mb-4"
+                />
+                <h2 class="text-xl text-white font-bold mb-2">{{ result.title }}</h2>
+                <p class="text-gray-300">{{ result.content }}</p>
+                <a href="{{ result.url }}" class="text-pink-400 font-bold hover:underline" target="_blank">Read More &rarr;</a>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <!-- JavaScript for Search Functionality -->
+    <script>
+        const rightSearchBox = document.getElementById("right-search-box");
+        const cardsContainer = document.getElementById("cards-container");
+        const cards = Array.from(cardsContainer.getElementsByClassName("card"));
+
+        // Filter cards based on right search box input
+        rightSearchBox.addEventListener("input", function() {
+            const query = rightSearchBox.value.toLowerCase();
+            cards.forEach(card => {
+                const cardText = card.innerText.toLowerCase();
+                if (cardText.includes(query)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+
+
+    </script>
+
+{% endblock %}
