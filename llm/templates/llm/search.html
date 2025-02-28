@@ -3,7 +3,7 @@
 
     <div class="container mx-auto px-4 py-10 mb-8">
         <!-- Clarity Search Heading -->
-        <h1 class="text-4xl text-white font-bold text-center mb-10">Clarity Search</h1>
+        <h1 class="text-4xl text-white font-bold text-center mb-10">Social Search</h1>
 
         <!-- Search Boxes and Button -->
         <div class="flex justify-center items-center space-x-6 mb-8">
@@ -21,7 +21,7 @@
             <!-- "Go" Button -->
             <button
                 id="go-button"
-                class="p-3 bg-pink-400 rounded-lg text-white font-bold hover:bg-white hover:text-pink-400 transition-colors"
+                class="p-3 bg-green-500 rounded-lg text-white font-bold hover:bg-white hover:text-green-500 transition-colors"
                 type="submit"
             >
                 Go
@@ -55,13 +55,18 @@
                 />
                 <h2 class="text-xl text-white font-bold mb-2">{{ result.title }}</h2>
                 <p class="text-gray-300">{{ result.content }}</p>
-                <a href="{{ result.url }}" class="text-pink-400 font-bold hover:underline" target="_blank">Read More &rarr;</a>
+                <a href="{{ result.url }}" class="text-green-500 font-bold hover:underline" target="_blank">Read More &rarr;</a>
 
             </div>
             {% endfor %}
 
         </div>
     </div>
+
+
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="KJeh1Qe8UunRiZJmz0_Zd";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+        </script>
 
     <!-- JavaScript for Search Functionality -->
     <script>

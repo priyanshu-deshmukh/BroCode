@@ -10,13 +10,13 @@
     <form class="flex flex-col items-center space-y-6" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <!-- Custom File Input -->
-        <label for="file-upload" class="bg-pink-400 text-white px-6 py-3 rounded-lg cursor-pointer shadow-md font-bold hover:bg-white hover:text-pink-400">
+        <label for="file-upload" class="bg-green-500 text-white px-6 py-3 rounded-lg cursor-pointer shadow-md font-bold hover:bg-white hover:text-green-500">
           Choose File
         </label>
         <input type="file" name="csv_file" id="file-upload" class="hidden">
 
         <!-- Submit Button -->
-        <button type="submit" class="bg-pink-400 hover:bg-white hover:text-pink-400 text-white py-2 px-8 rounded-lg font-bold shadow-md">
+        <button type="submit" class="bg-green-500 hover:bg-white hover:text-green-500 text-white py-2 px-8 rounded-lg font-bold shadow-md">
           Upload CSV
         </button>
     </form>
@@ -49,10 +49,10 @@
 <br>
 <br>
 {% if cs %}
-<h1 class="text-4xl md:text-5xl font-extrabold text-center text-pink-400 mb-8"> Top keywords in Customer Reviews</h1>
+<h1 class="text-4xl md:text-5xl font-extrabold text-center text-white mb-8"> Top keywords in Customer Reviews</h1>
    <div class="flex flex-wrap gap-4 p-6 bg-gray-900 rounded-2xl shadow-lg w-full max-w-lg mx-auto">
        {% for i in tkey %}
-        <span class="px-4 py-2 text-sm font-semibold text-white bg-pink-400 rounded-full shadow-md hover:bg-white hover:text-pink-400 transition">{{ i }}</span>
+        <span class="px-4 py-2 text-sm font-semibold text-white bg-green-500 rounded-full shadow-md hover:bg-white hover:text-green-500 transition">{{ i }}</span>
         {% endfor %}
     </div>
 {% else %}
@@ -62,9 +62,14 @@
 <canvas id="sentimentChart"></canvas>
 
 <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="KJeh1Qe8UunRiZJmz0_Zd";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+
+
+<script>
     const lineCtx = document.getElementById('sentimentChart').getContext('2d');
 
-  const sentimentData = {{ cs }}; // Your sentiment scores
+  const sentimentData = {{ cs}}; // Your sentiment scores
       // Line Chart
   new Chart(lineCtx, {
     type: 'line',
@@ -73,10 +78,10 @@
       datasets: [{
         label: 'Sentiment Score',
         data: sentimentData,
-        borderColor: '#ff1493',
+        borderColor: 'rgba(87, 166, 63,0.3)',
         borderWidth: 2,
         fill: true,
-        backgroundColor: 'rgba(255, 20, 147, 0.2)'
+        backgroundColor: '#7ED957'
       }]
     },
     options: {

@@ -11,7 +11,7 @@
         <form class="space-y-4" method="POST">
             {% csrf_token %}
             <div>
-                <label class="block text-sm  font-medium text-pink-400">Twitter Query</label>
+                <label class="block text-sm  font-medium text-green-500">Twitter Query</label>
                 <input
                     type="text"
                     required
@@ -21,7 +21,7 @@
                 />
             </div>
             <div>
-                <label class="block text-sm font-medium text-pink-400">Subreddit Name</label>
+                <label class="block text-sm font-medium text-green-500">Subreddit Name</label>
                 <input
                     type="text"
                     required
@@ -32,7 +32,7 @@
             </div>
             <button
                 type="submit"
-                class="w-full bg-pink-400 text-white py-2 rounded-lg hover:bg-white hover:text-pink-400 transition"
+                class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-white hover:text-green-500 transition"
             >
                 Submit
             </button>
@@ -203,7 +203,9 @@
         </div>
     </div>
 
-
+    <script>
+      (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="KJeh1Qe8UunRiZJmz0_Zd";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+      </script>
 
 
 
